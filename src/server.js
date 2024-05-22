@@ -1,7 +1,8 @@
-import "dotenv/config";
 import express from "express";
+
 import UserController from "./app/controllers/UserController";
-import Queue from "./app/lib/Queue";
+
+import "dotenv/config";
 
 const app = express();
 
