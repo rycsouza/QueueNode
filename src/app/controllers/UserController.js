@@ -2,18 +2,20 @@ import Queue from "../lib/Queue";
 
 export default {
   async store(req, res) {
-    const { username, email, senha } = req.body;
+    const { name, email, senha } = req.body;
 
     const user = {
-      username,
+      name,
       email,
       senha,
     };
 
-    await Queue.add("RegistrationMail", { user });
+    //await Queue.add("RegistrationMail", { user });
 
-    await Queue.add("UserReport", { user });
+    //await Queue.add("UserReport", { user });
 
-    return res.json(user);
+    const taskEmFila = await Queue.add("RequestRifa");
+
+    return res.json(taskEmFila);
   },
 };
