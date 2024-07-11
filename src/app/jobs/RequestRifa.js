@@ -7,9 +7,7 @@ export default {
     delay: 0,
   },
   async handle({ data }) {
-    const response = await axios.get(
-      "https://teste.playservicos.com.br:3000/produtos/genericos?tagProcesso=surpresinha-checkout-generico&etapa_id=2819&praca_id=1"
-    );
+    const response = await axios.get(process.env.URL_Rifa);
 
     console.log(response);
   },
